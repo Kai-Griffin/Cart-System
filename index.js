@@ -1,48 +1,36 @@
-// select all products
-// log all products
-
+//select all product
+//log all product
 
 const main = document.querySelector('#main');
-console.log(main);
+//console.log(main);
 
-const  section = main.firstElementChild;
-console.log(section);
-
-const  h2 = section.firstElementChild;
-console.log(h2);
-
-const  div = section.nextElementSibling;
-console.log(div);
+const section = main.firstElementChild;
 
 
+const products = section.lastElementChild.children;
+
+console.log(products);
+
+//Get cart step 3
+const cart = main
+    .firstElementChild
+    .nextElementSibling
+    .lastElementChild;
+
+console.log(cart);
 
 
+//convert html to array step 2
+const productArray = Array.from(products);
 
-const article1 = div.firstElementChild;
-console.log(article1);
+productArray.forEach((p) =>{
+    p.addEventListener('click', () =>{
 
-const h3art1 = article1.firstElementChild;
-console.log(h3art1); 
+        //step4
+        const h5 = document.createElement('h5');
+        h5.innerText = p.firstElementChild.innerText;
 
-const p_art1 = article1.nextElementSibling;
-console.log(p_art1); 
-
-const button = article1.lastElementSibling;
-console.log(button); 
-
-
-
-const article2 = div.nextElementSibling;
-console.log(article2) ;
-
-const h3 = article2.firstElementChild;
-console.log(h3);
-
-
-const p = article2.nextElementSibling;
-console.log(p);
-
-const btn2 = article2.lastElementChild;
-console.log(btn2);
-
-
+        //step 5
+        cart.appendChild(p);
+    })
+});
